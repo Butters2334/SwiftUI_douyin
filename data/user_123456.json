@@ -1,0 +1,33 @@
+{
+    "uid": "123456",         //用户id
+    "short_id": "881305406",     //用户抖音号
+    "nickname": "QSHI",           //用户昵称
+    "gender": 1,                    //用户性别
+    "follower_count": 0,          //用户粉丝数量
+    "following_count": 9,         //用户关注数量
+    "aweme_count": 0,              //用户发布的短视频数量
+    "favoriting_count": 203,    //用户喜欢的短视频数量
+    "avatar_larger": {            //用户头像大图网络地址
+        375x375
+    },
+    "avatar_thumb": {              //用户头像缩略图网络地址
+        120x120
+    },
+}
+
+
+{
+    "aweme_id": 6553217298029612295,   //短视频id
+    "desc": "我想恋爱了",                    //短视频描述信息
+    "author_user_id": 61946151784,      //短视发布作者用户id
+    "video":null,       
+    "music":null,
+    "author":null,
+    "statistics":{
+        "aweme_id": "6553217298029612295",  //视频id
+        "play_count": 48138538,       //视频播放数量
+        "comment_count": 51202,       //视频评论数量
+        "share_count": 75606,         //视频分享数量
+        "digg_count": 2295822,         //视频喜欢数量
+    }
+}
