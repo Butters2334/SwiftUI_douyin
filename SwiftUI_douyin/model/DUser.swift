@@ -27,16 +27,6 @@ struct DUser :Codable{
     let tag:[String]            //标签
 }
 
-//extension DUser: LosslessStringConvertible{
-//    init?(_ description: String) {
-//        self
-//    }
-//    
-//    var description: String {
-//        ""
-//    }
-//}
-
 //序列化
 extension DUser: Identifiable {
     var id: Int {
@@ -53,10 +43,26 @@ extension DUser: Equatable {
 
 //用于UI显示
 extension DUser{
+    //将视频列表排序并分解为二维数组
+    var sort_video_list:[[DVideo]]{
+        let vl2 = video_list.sorted {Int($0.aweme_id) ?? 0 > Int($1.aweme_id) ?? 0}
+        if vl2.count == 0{
+            return [[]]
+        }
+        var sort_list:[[DVideo]] = []
+        var temp_list:[DVideo] = []
+        for data in vl2 {
+            temp_list.append(data)
+            if temp_list.count >= 3 {
+                sort_list.append(temp_list)
+                temp_list = []
+            }
+        }
+        return sort_list
+    }
     //发布视频数量
     var aweme_count:Int{
-        0
-//        video_list.count
+        video_list.count
     }
     //喜欢的短视频数量
     var favoriting_count:Int{
