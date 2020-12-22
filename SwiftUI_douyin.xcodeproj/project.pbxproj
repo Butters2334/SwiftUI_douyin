@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4021FA312591B9EA00CFDD94 /* DYTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021FA302591B9EA00CFDD94 /* DYTool.swift */; };
+		4021FA332591BE7300CFDD94 /* DUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021FA322591BE7300CFDD94 /* DUser.swift */; };
+		4021FA352591C04300CFDD94 /* DVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021FA342591C04300CFDD94 /* DVideo.swift */; };
+		4021FA372591C44900CFDD94 /* DStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021FA362591C44900CFDD94 /* DStatistics.swift */; };
 		4022DEF525907923004E10CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4022DEF425907923004E10CE /* AppDelegate.swift */; };
 		4022DEF725907923004E10CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4022DEF625907923004E10CE /* SceneDelegate.swift */; };
 		4022DEF925907923004E10CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4022DEF825907923004E10CE /* ContentView.swift */; };
 		4022DEFB2590793B004E10CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4022DEFA2590793B004E10CE /* Assets.xcassets */; };
 		4022DEFE2590793B004E10CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4022DEFD2590793B004E10CE /* Preview Assets.xcassets */; };
 		4022DF012590793B004E10CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4022DEFF2590793B004E10CE /* LaunchScreen.storyboard */; };
+		4022DF0E2591A040004E10CE /* DData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4022DF0D2591A040004E10CE /* DData.swift */; };
+		4022DF112591A060004E10CE /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = 4022DF102591A060004E10CE /* user.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4021FA302591B9EA00CFDD94 /* DYTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DYTool.swift; sourceTree = "<group>"; };
+		4021FA322591BE7300CFDD94 /* DUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DUser.swift; sourceTree = "<group>"; };
+		4021FA342591C04300CFDD94 /* DVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVideo.swift; sourceTree = "<group>"; };
+		4021FA362591C44900CFDD94 /* DStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DStatistics.swift; sourceTree = "<group>"; };
 		4022DEF125907923004E10CE /* SwiftUI_douyin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_douyin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4022DEF425907923004E10CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4022DEF625907923004E10CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +34,8 @@
 		4022DEFD2590793B004E10CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4022DF002590793B004E10CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4022DF022590793B004E10CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4022DF0D2591A040004E10CE /* DData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DData.swift; sourceTree = "<group>"; };
+		4022DF102591A060004E10CE /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4021FA2F2591B9DC00CFDD94 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				4021FA302591B9EA00CFDD94 /* DYTool.swift */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
 		4022DEE825907923004E10CE = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +76,11 @@
 		4022DEF325907923004E10CE /* SwiftUI_douyin */ = {
 			isa = PBXGroup;
 			children = (
-				4022DEF425907923004E10CE /* AppDelegate.swift */,
-				4022DEF625907923004E10CE /* SceneDelegate.swift */,
-				4022DEF825907923004E10CE /* ContentView.swift */,
+				4021FA2F2591B9DC00CFDD94 /* tool */,
+				4022DF0F2591A060004E10CE /* data */,
+				4022DF0A25919FE7004E10CE /* app */,
+				4022DF0C2591A040004E10CE /* model */,
 				4022DEFA2590793B004E10CE /* Assets.xcassets */,
-				4022DEFF2590793B004E10CE /* LaunchScreen.storyboard */,
-				4022DF022590793B004E10CE /* Info.plist */,
 				4022DEFC2590793B004E10CE /* Preview Content */,
 			);
 			path = SwiftUI_douyin;
@@ -74,6 +93,37 @@
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
+		};
+		4022DF0A25919FE7004E10CE /* app */ = {
+			isa = PBXGroup;
+			children = (
+				4022DEF425907923004E10CE /* AppDelegate.swift */,
+				4022DEF625907923004E10CE /* SceneDelegate.swift */,
+				4022DEF825907923004E10CE /* ContentView.swift */,
+				4022DEFF2590793B004E10CE /* LaunchScreen.storyboard */,
+				4022DF022590793B004E10CE /* Info.plist */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		4022DF0C2591A040004E10CE /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4022DF0D2591A040004E10CE /* DData.swift */,
+				4021FA322591BE7300CFDD94 /* DUser.swift */,
+				4021FA342591C04300CFDD94 /* DVideo.swift */,
+				4021FA362591C44900CFDD94 /* DStatistics.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4022DF0F2591A060004E10CE /* data */ = {
+			isa = PBXGroup;
+			children = (
+				4022DF102591A060004E10CE /* user.json */,
+			);
+			path = data;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -133,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4022DF112591A060004E10CE /* user.json in Resources */,
 				4022DF012590793B004E10CE /* LaunchScreen.storyboard in Resources */,
 				4022DEFE2590793B004E10CE /* Preview Assets.xcassets in Resources */,
 				4022DEFB2590793B004E10CE /* Assets.xcassets in Resources */,
@@ -148,7 +199,12 @@
 			files = (
 				4022DEF525907923004E10CE /* AppDelegate.swift in Sources */,
 				4022DEF725907923004E10CE /* SceneDelegate.swift in Sources */,
+				4021FA312591B9EA00CFDD94 /* DYTool.swift in Sources */,
+				4021FA372591C44900CFDD94 /* DStatistics.swift in Sources */,
+				4022DF0E2591A040004E10CE /* DData.swift in Sources */,
 				4022DEF925907923004E10CE /* ContentView.swift in Sources */,
+				4021FA352591C04300CFDD94 /* DVideo.swift in Sources */,
+				4021FA332591BE7300CFDD94 /* DUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +344,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI_douyin/Preview Content\"";
 				DEVELOPMENT_TEAM = Q36CWUF67A;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SwiftUI_douyin/Info.plist;
+				INFOPLIST_FILE = SwiftUI_douyin/app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,7 +364,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI_douyin/Preview Content\"";
 				DEVELOPMENT_TEAM = Q36CWUF67A;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SwiftUI_douyin/Info.plist;
+				INFOPLIST_FILE = SwiftUI_douyin/app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
