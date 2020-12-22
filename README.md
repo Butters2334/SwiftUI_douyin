@@ -40,8 +40,13 @@
     用户视频列表开发中
     发现当用户视频过多的时候页面一定会卡顿,但是swiftUI1.0没有相关的代码;
     这里可以使用UIKit来转化,这里就暂时跳过了;
-    视频列表完成,有两个基本问题:1,视频大图有上下黑边,所以固定了高度180来切掉;1,视频大图太亮太暗会影响观看人数的显示,所以加了阴影
-    
+    视频列表完成,有两个基本问题:
+        1,视频大图有上下黑边,所以固定了高度180来切掉;
+        2,视频大图太亮太暗会影响观看人数的显示,所以加了阴影
+<details close>
+<summary>视频列表</summary>
+<img width="80%" src="https://github.com/Butters2334/SwiftUI_douyin/raw/master/images/videoList.png"/>
+</details>    
 
 ## 📎 About
 
