@@ -53,7 +53,7 @@ extension DUser{
         var temp_list:[DVideo] = []
         for data in vl2 {
             temp_list.append(data)
-            if temp_list.count >= 3 {
+            if temp_list.count >= 3 || vl2.last == data {
                 sort_list.append(temp_list)
                 temp_list = []
             }

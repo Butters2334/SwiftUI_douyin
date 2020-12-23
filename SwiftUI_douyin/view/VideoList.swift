@@ -34,14 +34,14 @@ struct VideoList: View {
     var videoData:[[DVideo]]
     let maxWidth = UIScreen.main.bounds.width
     var body: some View {
-        VStack(spacing:1){
+        VStack(alignment:.leading,spacing:1){
             ForEach(videoData,id:\.self[0].aweme_id){videoList in
                 HStack(spacing:1){
                     ForEach(videoList,id:\.self.aweme_id){
                         VideoItem(videoData: $0)
                     }
                 }
-                .frame(maxWidth:self.maxWidth)
+                .frame(width:self.maxWidth/3*CGFloat(videoList.count))
             }
         }.background(Color.black)
     }
