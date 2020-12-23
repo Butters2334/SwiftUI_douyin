@@ -7,11 +7,13 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct ContentView: View {
     var body: some View {
         ScrollView{
             Text("data = \(String(reflecting:TestUserList[0]))")
+//            AVCaptureVideoPreviewLayer()()
         }
     }
 } 
