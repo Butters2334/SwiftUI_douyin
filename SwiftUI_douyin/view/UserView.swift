@@ -8,14 +8,33 @@
 
 import SwiftUI
 
+
 struct UserView: View {
+    let user:DUser
+    let bgColor = colorRGB(0x151823)
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView{
+            VStack(spacing:0){
+                loadImage(user.user_bg)
+                .resizable()
+                .scaledToFill()
+                .frame(height:100)
+                
+                UserContent(user: user, bgColor: bgColor)
+                
+                VideoList(videoData: user.sort_video_list)
+            }
+        }
+        .gesture(DragGesture().onChanged({ value in
+            print(value)
+        }))
+        .edgesIgnoringSafeArea(.top)
+        .background(bgColor)
     }
 }
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView()
+        UserView(user:TestUserList[0])
     }
 }

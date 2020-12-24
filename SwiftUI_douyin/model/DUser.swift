@@ -15,14 +15,14 @@ struct DUser :Codable{
     let nickname:String         //用户名
     let avatar: String          //头像
     let user_bg:String          //个人页背景
-    let gender: Int             //性别0女1男
+    let gender: Int?             //性别0女1男
     let get_thumbs_count:Int    //获得的赞同
     let following_count:Int     //关注数量
     let follower_count:Int      //用户粉丝数量
     let video_list:[DVideo]     //已发布视频列表
     let isFollowed:Bool         //是否已关注
     let personalSign:String     //个性签名
-    let age:Int                 //年龄
+    let age:Int?                //年龄
     let addr:[String]           //定位
     let tag:[String]            //标签
 }

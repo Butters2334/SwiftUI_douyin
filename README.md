@@ -52,6 +52,23 @@
     正在查找合适的播放器
         SwiftUI2新出的VideoPlayer也不能满足播放器的要求;
         也许github上有合适发方案,需要不少时间;
+        
+#### 13-18小时
+    用户页面上方的背景图有拖动效果,SwiftUI1.0没有找到可用的方法
+        2.0上面ScrollViewReader可以简单实现
+        1.0只能依赖和UIKit桥接
+    添加了用户详情
+
+<details close>
+<summary>用户详情</summary>
+<img width="50%" src="https://github.com/Butters2334/SwiftUI_douyin/raw/master/images/userContent.png"/>
+</details>    
+<details close>
+<summary>第一版用户页面</summary>
+<img width="50%" src="https://github.com/Butters2334/SwiftUI_douyin/raw/master/images/userView1224.png"/>
+</details>    
+
+
 
 ## 📎 About
 

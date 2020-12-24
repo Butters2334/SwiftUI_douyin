@@ -42,6 +42,7 @@
 		4021FA732591D64400CFDD94 /* VideoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021FA722591D64400CFDD94 /* VideoList.swift */; };
 		4021FA762591E8EF00CFDD94 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4021FA752591E8EF00CFDD94 /* SDWebImageSwiftUI */; };
 		4021FA782591FB9300CFDD94 /* PalyerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021FA772591FB9300CFDD94 /* PalyerView.swift */; };
+		4021FA7A259443CF00CFDD94 /* UserContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021FA79259443CF00CFDD94 /* UserContent.swift */; };
 		4022DEF525907923004E10CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4022DEF425907923004E10CE /* AppDelegate.swift */; };
 		4022DEF725907923004E10CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4022DEF625907923004E10CE /* SceneDelegate.swift */; };
 		4022DEF925907923004E10CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4022DEF825907923004E10CE /* ContentView.swift */; };
@@ -86,6 +87,7 @@
 		4021FA562591D5FE00CFDD94 /* 35731289981082.JPEG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 35731289981082.JPEG; sourceTree = "<group>"; };
 		4021FA722591D64400CFDD94 /* VideoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoList.swift; sourceTree = "<group>"; };
 		4021FA772591FB9300CFDD94 /* PalyerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalyerView.swift; sourceTree = "<group>"; };
+		4021FA79259443CF00CFDD94 /* UserContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserContent.swift; path = SwiftUI_douyin/view/UserContent.swift; sourceTree = "<group>"; };
 		4022DEF125907923004E10CE /* SwiftUI_douyin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_douyin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4022DEF425907923004E10CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4022DEF625907923004E10CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		4022DEE825907923004E10CE = {
 			isa = PBXGroup;
 			children = (
+				4021FA79259443CF00CFDD94 /* UserContent.swift */,
 				4022DEF325907923004E10CE /* SwiftUI_douyin */,
 				4022DEF225907923004E10CE /* Products */,
 			);
@@ -336,6 +339,7 @@
 				4021FA352591C04300CFDD94 /* DVideo.swift in Sources */,
 				4021FA782591FB9300CFDD94 /* PalyerView.swift in Sources */,
 				4021FA3A2591D5A700CFDD94 /* UserView.swift in Sources */,
+				4021FA7A259443CF00CFDD94 /* UserContent.swift in Sources */,
 				4021FA332591BE7300CFDD94 /* DUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
