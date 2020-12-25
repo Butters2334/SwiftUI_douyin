@@ -50,6 +50,7 @@
 		4022DEFE2590793B004E10CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4022DEFD2590793B004E10CE /* Preview Assets.xcassets */; };
 		4022DF012590793B004E10CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4022DEFF2590793B004E10CE /* LaunchScreen.storyboard */; };
 		4022DF0E2591A040004E10CE /* DData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4022DF0D2591A040004E10CE /* DData.swift */; };
+		403AA7272595BC490053B620 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AA7262595BC490053B620 /* ScrollViewOffset.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		4022DF002590793B004E10CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4022DF022590793B004E10CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4022DF0D2591A040004E10CE /* DData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DData.swift; sourceTree = "<group>"; };
+		403AA7262595BC490053B620 /* ScrollViewOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScrollViewOffset.swift; path = SwiftUI_douyin/view/ScrollViewOffset.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 		4022DEE825907923004E10CE = {
 			isa = PBXGroup;
 			children = (
+				403AA7262595BC490053B620 /* ScrollViewOffset.swift */,
 				4021FA79259443CF00CFDD94 /* UserContent.swift */,
 				4022DEF325907923004E10CE /* SwiftUI_douyin */,
 				4022DEF225907923004E10CE /* Products */,
@@ -333,6 +336,7 @@
 				4022DEF725907923004E10CE /* SceneDelegate.swift in Sources */,
 				4021FA312591B9EA00CFDD94 /* DYTool.swift in Sources */,
 				4021FA372591C44900CFDD94 /* DStatistics.swift in Sources */,
+				403AA7272595BC490053B620 /* ScrollViewOffset.swift in Sources */,
 				4022DF0E2591A040004E10CE /* DData.swift in Sources */,
 				4021FA732591D64400CFDD94 /* VideoList.swift in Sources */,
 				4022DEF925907923004E10CE /* ContentView.swift in Sources */,

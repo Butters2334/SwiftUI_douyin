@@ -9,27 +9,59 @@
 import SwiftUI
 
 
+
 struct UserView: View {
     let user:DUser
     let bgColor = colorRGB(0x151823)
+    
+    @State private var scrollOffset: CGFloat = .zero
     var body: some View {
-        ScrollView{
-            VStack(spacing:0){
-                loadImage(user.user_bg)
-                .resizable()
-                .scaledToFill()
-                .frame(height:100)
-                
-                UserContent(user: user, bgColor: bgColor)
-                
-                VideoList(videoData: user.sort_video_list)
-            }
+        ZStack {
+            scrollView
+            statusBarView
         }
-        .gesture(DragGesture().onChanged({ value in
-            print(value)
-        }))
         .edgesIgnoringSafeArea(.top)
         .background(bgColor)
+    }
+    
+    var scrollView: some View {
+        ScrollViewOffset(onOffsetChange: {
+            self.scrollOffset = $0
+        }, content: {
+            VStack(alignment:.center,spacing:0){
+                ZStack{
+                    loadImage(self.user.user_bg)
+                        .resizable()
+                        .scaledToFill()
+                        .padding(-self.scrollOffset)
+                }
+                .frame(height:100)
+
+                UserContent(user: self.user, bgColor: self.bgColor)
+                
+                VideoList(videoData: self.user.sort_video_list)
+            }
+        })
+    }
+    
+    var statusBarView: some View {
+        GeometryReader { geometry in
+            Color.red
+                .opacity(self.opacity)
+                .frame(height: geometry.safeAreaInsets.top, alignment: .top)
+                .edgesIgnoringSafeArea(.top)
+        }
+    }
+    
+    var opacity: Double {
+        switch scrollOffset {
+        case -100...0:
+            return Double(-scrollOffset) / 100.0
+        case ...(-100):
+            return 1
+        default:
+            return 0
+        }
     }
 }
 
