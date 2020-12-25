@@ -14,9 +14,10 @@ struct UserView: View {
     let user:DUser
     let bgColor = colorRGB(0x151823)
     
-    @State private var scrollOffset: CGFloat = .zero
+    @State private var scrollOffset: CGFloat = 0
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
+            bgView
             scrollView
             statusBarView
         }
@@ -24,18 +25,21 @@ struct UserView: View {
         .background(bgColor)
     }
     
+    var  bgView : some View{
+        loadImage(self.user.user_bg)
+            .resizable()
+            .scaledToFill()
+            .frame(height:140)
+//            .padding(min(-self.scrollOffset,0))
+            .padding(self.padding)
+    }
+    
     var scrollView: some View {
         ScrollViewOffset(onOffsetChange: {
             self.scrollOffset = $0
         }, content: {
             VStack(alignment:.center,spacing:0){
-                ZStack{
-                    loadImage(self.user.user_bg)
-                        .resizable()
-                        .scaledToFill()
-                        .padding(-self.scrollOffset)
-                }
-                .frame(height:100)
+                Color.clear.frame(height:100)
 
                 UserContent(user: self.user, bgColor: self.bgColor)
                 
@@ -48,9 +52,20 @@ struct UserView: View {
         GeometryReader { geometry in
             Color.red
                 .opacity(self.opacity)
-                .frame(height: geometry.safeAreaInsets.top, alignment: .top)
-                .edgesIgnoringSafeArea(.top)
+                .frame(height: geometry.safeAreaInsets.top+44)
         }
+    }
+    
+    var padding:EdgeInsets {
+        let gap = CGFloat(60.0)
+        if scrollOffset <= gap {
+            return EdgeInsets()
+        }
+        let offset = -scrollOffset + gap
+        return EdgeInsets(top: offset * -1.2,
+                          leading: offset,
+                          bottom: offset,
+                          trailing: offset)
     }
     
     var opacity: Double {
