@@ -68,6 +68,8 @@
 <img width="50%" src="https://github.com/Butters2334/SwiftUI_douyin/raw/master/images/userView1224.png"/>
 </details>    
 
+#### 18-22小时
+更新了个人页的拖动逻辑
 
 
 ## 📎 About

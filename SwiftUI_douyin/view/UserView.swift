@@ -49,10 +49,31 @@ struct UserView: View {
     }
     
     var statusBarView: some View {
-        GeometryReader { geometry in
-            Color.red
-                .opacity(self.opacity)
+        GeometryReader{ geometry in
+            HStack(alignment:.top){
+                self.bgColor
                 .frame(height: geometry.safeAreaInsets.top+44)
+                .overlay(
+                    GeometryReader{ geometry in
+                        HStack{
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.white)
+                            Spacer()
+                            Text(self.user.nickname)
+                                .font(.system(size: 24))
+                                .bold()
+                                .foregroundColor(.white)
+                            Spacer()
+                            Image(systemName: "ellipsis")
+                                .foregroundColor(.white)
+                        }.padding(15)
+                    }
+                    .frame(height:44)
+                    ,alignment: .bottom
+                )
+            }
+            .opacity(self.opacity)
+            .frame(height:geometry.size.height,alignment: .top)
         }
     }
     
@@ -70,9 +91,11 @@ struct UserView: View {
     
     var opacity: Double {
         switch scrollOffset {
-        case -100...0:
-            return Double(-scrollOffset) / 100.0
-        case ...(-100):
+        case -180...0:
+            return 0
+        case (-280)..<(-180):
+            return Double(-scrollOffset-180) / 100.0
+        case (-999)..<(-240):
             return 1
         default:
             return 0
