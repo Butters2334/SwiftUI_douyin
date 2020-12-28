@@ -13,7 +13,8 @@ import SwiftUI
 struct UserView: View {
     let user:DUser
     let bgColor = colorRGB(0x151823)
-    
+    @State var leftPercent:CGFloat //0左,1右
+
     @State private var scrollOffset: CGFloat = 0
     var body: some View {
         ZStack(alignment: .top) {
@@ -45,10 +46,15 @@ struct UserView: View {
                     
                     UserContent(user: self.user, bgColor: self.bgColor)
                     
+                    VideoSelect(videoCount: self.user.aweme_count,
+                                likeCount: self.user.favoriting_count,
+                                leftPercent: 0)
+                        .background(self.bgColor)
+
                     VideoList(videoData: self.user.sort_video_list)
-                    
+
                     //底部适配X的屏幕下方
-                    Color.red
+                    self.bgColor
                         .frame(height:geometry.safeAreaInsets.bottom)
                 }
             })
@@ -112,6 +118,6 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView(user:TestUserList[0])
+        UserView(user:TestUserList[0],leftPercent: 0)
     }
 }

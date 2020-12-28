@@ -23,7 +23,7 @@ struct ContentView: View {
 //            Text("data = \(String(reflecting:TestUserList[0]))")
 ////            AVCaptureVideoPreviewLayer()()
 //        }
-        UserView(user: TestUserList[0])
+        UserView(user: TestUserList[0],leftPercent: 0)
     }
 } 
 

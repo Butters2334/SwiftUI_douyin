@@ -52,6 +52,7 @@
 		4022DF0E2591A040004E10CE /* DData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4022DF0D2591A040004E10CE /* DData.swift */; };
 		403AA7272595BC490053B620 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AA7262595BC490053B620 /* ScrollViewOffset.swift */; };
 		403AA72925997F960053B620 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AA72825997F960053B620 /* Test.swift */; };
+		403AA72B2599AFC80053B620 /* VideoSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AA72A2599AFC80053B620 /* VideoSelect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		4022DF0D2591A040004E10CE /* DData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DData.swift; sourceTree = "<group>"; };
 		403AA7262595BC490053B620 /* ScrollViewOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
 		403AA72825997F960053B620 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		403AA72A2599AFC80053B620 /* VideoSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSelect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		4021FA382591D58600CFDD94 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				403AA72A2599AFC80053B620 /* VideoSelect.swift */,
 				403AA7262595BC490053B620 /* ScrollViewOffset.swift */,
 				4021FA79259443CF00CFDD94 /* UserContent.swift */,
 				4021FA392591D5A700CFDD94 /* UserView.swift */,
@@ -341,6 +344,7 @@
 				403AA72925997F960053B620 /* Test.swift in Sources */,
 				4021FA372591C44900CFDD94 /* DStatistics.swift in Sources */,
 				403AA7272595BC490053B620 /* ScrollViewOffset.swift in Sources */,
+				403AA72B2599AFC80053B620 /* VideoSelect.swift in Sources */,
 				4022DF0E2591A040004E10CE /* DData.swift in Sources */,
 				4021FA732591D64400CFDD94 /* VideoList.swift in Sources */,
 				4022DEF925907923004E10CE /* ContentView.swift in Sources */,
