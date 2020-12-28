@@ -123,7 +123,7 @@ struct UserContent: View {
     let user    : DUser
     let bgColor : Color
     var body: some View {
-        VStack(alignment: .leading, spacing: 12){
+        VStack(alignment: .leading, spacing: 15){
             //头像和关注按钮
             UserStatus(user:user,bgColor: bgColor)
             //名称和昵称

@@ -45,11 +45,12 @@ struct UserView: View {
                     Color.clear.frame(height:100)
                     
                     UserContent(user: self.user, bgColor: self.bgColor)
-                    
+                                        
                     VideoSelect(videoCount: self.user.aweme_count,
                                 likeCount: self.user.favoriting_count,
                                 leftPercent: 0)
                         .background(self.bgColor)
+                    
 
                     VideoList(videoData: self.user.sort_video_list)
 
