@@ -14,19 +14,21 @@ struct VideoItem: View {
         loadImage(videoData.cover)
             .resizable(resizingMode: .stretch)
             .scaledToFill()
-            .frame(height: 180)
+            .frame(height: 170)
             .clipped()
-            .overlay(
-                HStack(spacing:5){
-                    Image(systemName: "suit.heart")
-                    Text(videoData.statistics.play_count.countText)
-                    .bold()
-                }
-                .shadow(color: .black, radius: 4, x: 4, y: 4)
-                .font(.system(size: 12))
-                .padding(EdgeInsets(top: 0, leading: 7, bottom: 7, trailing: 0))
-                .foregroundColor(.white),
-                alignment: .bottomLeading)
+            .overlay(playCount,
+            alignment: .bottomLeading)
+    }
+    var playCount: some View {
+        HStack(spacing:5){
+            Image(systemName: "suit.heart")
+            Text(videoData.statistics.play_count.countText)
+            .bold()
+        }
+        .shadow(color: .black, radius: 4, x: 4, y: 4)
+        .font(.system(size: 12))
+        .padding(EdgeInsets(top: 0, leading: 7, bottom: 7, trailing: 0))
+        .foregroundColor(.white)
     }
 }
 

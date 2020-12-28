@@ -59,6 +59,9 @@
         1.0只能依赖和UIKit桥接
     添加了用户详情
 
+#### 19-20小时
+    iPhoneX上面宽度不一样暴露了宽度适配的问题,不能写死宽度而且要适当给出空间给自定义间距
+
 <details close>
 <summary>用户详情</summary>
 <img width="50%" src="https://github.com/Butters2334/SwiftUI_douyin/raw/master/images/userContent.png"/>

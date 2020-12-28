@@ -12,7 +12,7 @@ struct UserStatus:View {
     let user:DUser
     let bgColor : Color
     var body: some View{
-        HStack(spacing: 8){
+        HStack(spacing: 15){
             loadImage(user.avatar)
                 .resizable()
                 .scaledToFill()
@@ -24,33 +24,35 @@ struct UserStatus:View {
                 )
                 .padding(.top,-15)
 
-            Spacer()
-            
-            Button(action: {
-                print("关注")
-            }) {
-                HStack(spacing:5){
-                    Image(systemName: "plus")
-                        .font(.system(size: 17, weight: .regular))
-                    Text("关注")
+            HStack(spacing:8){
+                GeometryReader { geometry in
+                    Button(action: {
+                        print("关注")
+                    }) {
+                        HStack(spacing:5){
+                            Image(systemName: "plus")
+                                .font(.system(size: 17, weight: .regular))
+                            Text("关注")
+                                .font(.system(size: 15))
+                                .bold()
+                        }
+                    }
+                    .frame(width:geometry.size.width,height:40)
+                    .background(Color.pink)
+                }
+                
+                Button(action: {
+                    print("私信")
+                }) {
+                    Text("私信")
                         .font(.system(size: 15))
                         .bold()
                 }
-                .foregroundColor(.white)
+                .frame(width:70,height:40)
+                .background(Color.gray.opacity(0.3))
             }
-            .frame(width:190,height:40)
-            .background(Color.pink)
-        
-            Button(action: {
-                print("私信")
-            }) {
-                Text("私信")
-                    .font(.system(size: 15))
-                    .bold()
-                .foregroundColor(.white)
-            }
-            .frame(width:70,height:40)
-            .background(Color.gray.opacity(0.3))
+            .foregroundColor(.white)
+            .frame(height:40)
         }
     }
 }
@@ -152,6 +154,7 @@ struct UserContent: View {
         .foregroundColor(Color.white.opacity(0.85))
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 10, trailing: 15))
         .background(bgColor)
+//        .frame(width:UIScreen.main.bounds.width)
     }
 }
 

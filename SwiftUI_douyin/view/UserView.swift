@@ -30,7 +30,6 @@ struct UserView: View {
             .resizable()
             .scaledToFill()
             .frame(height:140)
-//            .padding(min(-self.scrollOffset,0))
             .padding(self.padding)
     }
     
@@ -52,7 +51,7 @@ struct UserView: View {
         GeometryReader{ geometry in
             HStack(alignment:.top){
                 self.bgColor
-                .frame(height: geometry.safeAreaInsets.top+44)
+                    .frame(width:geometry.size.width,height: geometry.safeAreaInsets.top+44)
                 .overlay(
                     GeometryReader{ geometry in
                         HStack{
@@ -68,7 +67,7 @@ struct UserView: View {
                                 .foregroundColor(.white)
                         }.padding(15)
                     }
-                    .frame(height:44)
+                    .frame(width:geometry.size.width,height:44)
                     ,alignment: .bottom
                 )
             }
@@ -82,7 +81,7 @@ struct UserView: View {
         if scrollOffset <= gap {
             return EdgeInsets()
         }
-        let offset = -scrollOffset + gap
+        let offset = max(-scrollOffset + gap,-60)
         return EdgeInsets(top: offset * -1.2,
                           leading: offset,
                           bottom: offset,
