@@ -21,8 +21,9 @@ struct UserView: View {
             scrollView
             statusBarView
         }
-        .edgesIgnoringSafeArea(.top)
         .background(bgColor)
+        //上下适配
+        .edgesIgnoringSafeArea(.all)
     }
     
     var  bgView : some View{
@@ -34,17 +35,24 @@ struct UserView: View {
     }
     
     var scrollView: some View {
-        ScrollViewOffset(onOffsetChange: {
-            self.scrollOffset = $0
-        }, content: {
-            VStack(alignment:.center,spacing:0){
-                Color.clear.frame(height:100)
-
-                UserContent(user: self.user, bgColor: self.bgColor)
-                
-                VideoList(videoData: self.user.sort_video_list)
-            }
-        })
+        GeometryReader{ geometry in
+            ScrollViewOffset(onOffsetChange: {
+                self.scrollOffset = $0
+            }, content: {
+                VStack(alignment:.center,spacing:0){
+                    //占用100像素给后面的背景图
+                    Color.clear.frame(height:100)
+                    
+                    UserContent(user: self.user, bgColor: self.bgColor)
+                    
+                    VideoList(videoData: self.user.sort_video_list)
+                    
+                    //底部适配X的屏幕下方
+                    Color.red
+                        .frame(height:geometry.safeAreaInsets.bottom)
+                }
+            })
+        }
     }
     
     var statusBarView: some View {
@@ -81,7 +89,7 @@ struct UserView: View {
         if scrollOffset <= gap {
             return EdgeInsets()
         }
-        let offset = max(-scrollOffset + gap,-60)
+        let offset = max(-scrollOffset + gap,-55)
         return EdgeInsets(top: offset * -1.2,
                           leading: offset,
                           bottom: offset,
