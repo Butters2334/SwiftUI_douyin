@@ -35,6 +35,10 @@ struct UserView: View {
             .padding(self.padding)
     }
     
+    var hsHeight:CGFloat {
+        self.leftPercent==0 ? self.user.video_view_height : self.user.like_view_height
+    }
+    
     var scrollView: some View {
         GeometryReader{ geometry in
             ScrollViewOffset(onOffsetChange: {
@@ -48,11 +52,16 @@ struct UserView: View {
                                         
                     VideoSelect(videoCount: self.user.aweme_count,
                                 likeCount: self.user.favoriting_count,
-                                leftPercent: 0)
+                                leftPercent: self.$leftPercent)
                         .background(self.bgColor)
                     
 
-                    VideoList(videoData: self.user.sort_video_list)
+                    HScrollViewController(pageWidth: geometry.size.width, contentSize: CGSize(width: geometry.size.width*2, height: self.hsHeight),leftPercent:self.$leftPercent) {
+                        HStack(spacing:0){
+                            VideoList(videoData: self.user.sort_video_list)
+                            VideoList(videoData: self.user.no_sort_video_list)
+                        }
+                    }.frame(height:self.hsHeight)
 
                     //底部适配X的屏幕下方
                     self.bgColor

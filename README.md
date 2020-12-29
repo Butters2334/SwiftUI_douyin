@@ -64,6 +64,8 @@
     简单适配了刘海屏
 
 #### 21-25小时
+    遇到一个新问题:swiftUI不能做多重scrollview嵌套!
+
 
 <details close>
 <summary>用户详情</summary>

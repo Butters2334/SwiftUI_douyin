@@ -7,15 +7,15 @@
 //
 
 import Foundation
-
+import UIKit
 
 //json映射
 struct DVideo :Codable{
     var aweme_id: String
     let desc:String
     let author_user_id:String
-    let video:String
-    let cover:String
+    let video:String            //视频地址/或本地视频名称
+    let cover:String            //视频大图
     let music:String?
     let author:String?
     let statistics:DStatistics
@@ -37,4 +37,7 @@ extension DVideo: Equatable {
 
 //用于UI显示
 extension DVideo{
+    var coverSize:CGSize {
+        CGSize(width: UIScreen.main.bounds.width/3, height: 170)
+    }
 }

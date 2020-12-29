@@ -34,7 +34,7 @@ struct VideoSelect: View {
     let videoCount:Int
     let likeCount:Int
     
-    @State var leftPercent:CGFloat //0左,1右
+    @Binding var leftPercent:CGFloat //0左,1右
     
     
     var body: some View {
@@ -72,7 +72,7 @@ struct VideoSelect_Previews: PreviewProvider {
     static var previews: some View {
         VideoSelect(videoCount: 1,
                     likeCount: 2,
-                    leftPercent:0.0)
+                    leftPercent:.constant(0.0))
         .background(Color.black)
     }
 }

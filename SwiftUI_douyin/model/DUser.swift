@@ -6,7 +6,7 @@
 //  Copyright © 2020 ancc. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 //json映射
 struct DUser :Codable{
@@ -45,7 +45,16 @@ extension DUser: Equatable {
 extension DUser{
     //将视频列表排序并分解为二维数组
     var sort_video_list:[[DVideo]]{
-        let vl2 = video_list.sorted {Int($0.aweme_id) ?? 0 > Int($1.aweme_id) ?? 0}
+        matrix_video_list(
+            video_list.sorted {
+                (Int($0.aweme_id) ?? 0) > (Int($1.aweme_id) ?? 0)
+            }
+        )
+    }
+    var no_sort_video_list:[[DVideo]]{
+        matrix_video_list(video_list)
+    }
+    func matrix_video_list(_ vl2:[DVideo])->[[DVideo]]{
         if vl2.count == 0{
             return [[]]
         }
@@ -60,6 +69,7 @@ extension DUser{
         }
         return sort_list
     }
+
     //发布视频数量
     var aweme_count:Int{
         video_list.count
@@ -71,4 +81,24 @@ extension DUser{
     var favoriting:[DVideo]{
         []
     }
+    
+    //视频列表高度;找不到两个scrollview嵌套的办法,暂时计算高度来适配
+    var video_view_height:CGFloat {
+        if video_list.count > 0 {
+            print(video_list[0].coverSize.height)
+            print(CGFloat(video_list.count) / 3)
+            print(ceil(CGFloat(video_list.count) / 3))
+            print(video_list[0].coverSize.height * ceil(CGFloat(video_list.count) / 3))
+            return video_list[0].coverSize.height * ceil(CGFloat(video_list.count) / 3)
+        }
+        return 100.0
+    }
+    
+    var like_view_height:CGFloat {
+        if favoriting.count > 0 {
+            return favoriting[0].coverSize.height * ceil(CGFloat(favoriting.count) / 3)
+        }
+        return 100.0
+    }
 }
+

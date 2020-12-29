@@ -14,7 +14,7 @@ struct VideoItem: View {
         loadImage(videoData.cover)
             .resizable(resizingMode: .stretch)
             .scaledToFill()
-            .frame(height: 170)
+            .frame(height: videoData.coverSize.height)
             .clipped()
             .overlay(playCount,
             alignment: .bottomLeading)
