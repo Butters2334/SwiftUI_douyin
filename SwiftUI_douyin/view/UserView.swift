@@ -28,11 +28,13 @@ struct UserView: View {
     }
     
     var  bgView : some View{
-        loadImage(self.user.user_bg)
-            .resizable()
-            .scaledToFill()
-            .frame(height:140)
-            .padding(self.padding)
+        ZStack{
+            loadImage(self.user.user_bg)
+                .resizable()
+                .scaledToFill()
+                .frame(height:140)
+                .padding(self.padding)
+        }
     }
     
     var hsHeight:CGFloat {
@@ -59,9 +61,13 @@ struct UserView: View {
                     HScrollViewController(pageWidth: geometry.size.width, contentSize: CGSize(width: geometry.size.width*2, height: self.hsHeight),leftPercent:self.$leftPercent) {
                         HStack(spacing:0){
                             VideoList(videoData: self.user.sort_video_list)
-                            VideoList(videoData: self.user.no_sort_video_list)
+                                .frame(width:geometry.size.width)
+                            LikeList(videoData: self.user.favoriting_video_list)
+                                .frame(width:geometry.size.width,height:self.hsHeight)
                         }
-                    }.frame(height:self.hsHeight)
+                        .background(self.bgColor)
+                    }
+                    .frame(height:self.hsHeight)
 
                     //底部适配X的屏幕下方
                     self.bgColor
@@ -77,7 +83,6 @@ struct UserView: View {
                 self.bgColor
                     .frame(width:geometry.size.width,height: geometry.safeAreaInsets.top+44)
                 .overlay(
-                    GeometryReader{ geometry in
                         HStack{
                             Image(systemName: "chevron.left")
                                 .foregroundColor(.white)
@@ -90,7 +95,6 @@ struct UserView: View {
                             Image(systemName: "ellipsis")
                                 .foregroundColor(.white)
                         }.padding(15)
-                    }
                     .frame(width:geometry.size.width,height:44)
                     ,alignment: .bottom
                 )
@@ -128,6 +132,6 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView(user:TestUserList[0],leftPercent: 0)
+        UserView(user:TestUserList[0],leftPercent: 1)
     }
 }

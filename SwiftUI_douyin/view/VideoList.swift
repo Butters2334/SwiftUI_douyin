@@ -49,10 +49,13 @@ struct VideoList: View {
     }
 }
 
+
+
 struct VideoList_Previews: PreviewProvider {
     static var previews: some View {
         ScrollView{
             VideoList(videoData: TestUserList[0].sort_video_list)
         }
+        //.frame(height:350)
     }
 }

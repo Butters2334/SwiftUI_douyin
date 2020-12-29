@@ -63,6 +63,8 @@ struct VideoSelect: View {
                 .foregroundColor(.yellow)
                 .frame(width:VideoSelectWidth,height:2)
                 .offset(x:VideoSelectWidth*2*(self.leftPercent-0.5)+VideoSelectWidth*(0.5-self.leftPercent))
+            
+            Divider()
         }
         .frame(width:UIScreen.main.bounds.width,height:VideoSelectHeight)
     }

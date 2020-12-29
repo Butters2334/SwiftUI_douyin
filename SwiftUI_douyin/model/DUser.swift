@@ -51,12 +51,13 @@ extension DUser{
             }
         )
     }
+    //未排序
     var no_sort_video_list:[[DVideo]]{
         matrix_video_list(video_list)
     }
     func matrix_video_list(_ vl2:[DVideo])->[[DVideo]]{
         if vl2.count == 0{
-            return [[]]
+            return []
         }
         var sort_list:[[DVideo]] = []
         var temp_list:[DVideo] = []
@@ -81,6 +82,9 @@ extension DUser{
     var favoriting:[DVideo]{
         []
     }
+    var favoriting_video_list:[[DVideo]]{
+        matrix_video_list(favoriting)
+    }
     
     //视频列表高度;找不到两个scrollview嵌套的办法,暂时计算高度来适配
     var video_view_height:CGFloat {
@@ -91,14 +95,14 @@ extension DUser{
             print(video_list[0].coverSize.height * ceil(CGFloat(video_list.count) / 3))
             return video_list[0].coverSize.height * ceil(CGFloat(video_list.count) / 3)
         }
-        return 100.0
+        return 170*2
     }
     
     var like_view_height:CGFloat {
         if favoriting.count > 0 {
             return favoriting[0].coverSize.height * ceil(CGFloat(favoriting.count) / 3)
         }
-        return 100.0
+        return 170*2
     }
 }
 

@@ -53,6 +53,7 @@
 		403AA7272595BC490053B620 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AA7262595BC490053B620 /* ScrollViewOffset.swift */; };
 		403AA72925997F960053B620 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AA72825997F960053B620 /* Test.swift */; };
 		403AA72B2599AFC80053B620 /* VideoSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AA72A2599AFC80053B620 /* VideoSelect.swift */; };
+		4090C47B259AFB8300CCBCFD /* LikeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4090C47A259AFB8300CCBCFD /* LikeList.swift */; };
 		40C8809F2599C98300A505F2 /* HScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8809E2599C98300A505F2 /* HScrollViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		403AA7262595BC490053B620 /* ScrollViewOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
 		403AA72825997F960053B620 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		403AA72A2599AFC80053B620 /* VideoSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSelect.swift; sourceTree = "<group>"; };
+		4090C47A259AFB8300CCBCFD /* LikeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeList.swift; sourceTree = "<group>"; };
 		40C8809E2599C98300A505F2 /* HScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HScrollViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 		4021FA382591D58600CFDD94 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4090C47A259AFB8300CCBCFD /* LikeList.swift */,
 				40C8809E2599C98300A505F2 /* HScrollViewController.swift */,
 				403AA72A2599AFC80053B620 /* VideoSelect.swift */,
 				403AA7262595BC490053B620 /* ScrollViewOffset.swift */,
@@ -342,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4022DEF525907923004E10CE /* AppDelegate.swift in Sources */,
+				4090C47B259AFB8300CCBCFD /* LikeList.swift in Sources */,
 				4022DEF725907923004E10CE /* SceneDelegate.swift in Sources */,
 				4021FA312591B9EA00CFDD94 /* DYTool.swift in Sources */,
 				403AA72925997F960053B620 /* Test.swift in Sources */,
