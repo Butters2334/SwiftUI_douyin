@@ -85,7 +85,9 @@ struct UserView: View {
     var navigation: some View {
         UserNavigationView(bgColor: bgColor,
                            nickname: user.nickname,
-                           scrollOffset: $scrollOffset)
+                           scrollOffset: $scrollOffset,
+                           backTap: {print("backTap")},
+                           moreTap: {print("moreTap")})
     }
     //视频列表高度依赖左右切换
     var hsHeight:CGFloat {

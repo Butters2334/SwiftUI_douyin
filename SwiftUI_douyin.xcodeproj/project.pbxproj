@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		401DE68B259C4FF600DF2FE3 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DE68A259C4FF600DF2FE3 /* View+.swift */; };
 		4021FA312591B9EA00CFDD94 /* DYTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021FA302591B9EA00CFDD94 /* DYTool.swift */; };
 		4021FA332591BE7300CFDD94 /* DUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021FA322591BE7300CFDD94 /* DUser.swift */; };
 		4021FA352591C04300CFDD94 /* DVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021FA342591C04300CFDD94 /* DVideo.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		401DE68A259C4FF600DF2FE3 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		4021FA302591B9EA00CFDD94 /* DYTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DYTool.swift; sourceTree = "<group>"; };
 		4021FA322591BE7300CFDD94 /* DUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DUser.swift; sourceTree = "<group>"; };
 		4021FA342591C04300CFDD94 /* DVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVideo.swift; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		401DE689259C4FDC00DF2FE3 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				401DE68A259C4FF600DF2FE3 /* View+.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
 		4021FA2F2591B9DC00CFDD94 /* tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +214,7 @@
 		4022DEF325907923004E10CE /* SwiftUI_douyin */ = {
 			isa = PBXGroup;
 			children = (
+				401DE689259C4FDC00DF2FE3 /* extension */,
 				4021FA3B2591D5FE00CFDD94 /* data */,
 				4021FA382591D58600CFDD94 /* view */,
 				4021FA2F2591B9DC00CFDD94 /* tool */,
@@ -358,6 +369,7 @@
 				4021FA372591C44900CFDD94 /* DStatistics.swift in Sources */,
 				403AA7272595BC490053B620 /* ScrollViewOffset.swift in Sources */,
 				4095A786259C27E200CCF7E7 /* UserNavigationView.swift in Sources */,
+				401DE68B259C4FF600DF2FE3 /* View+.swift in Sources */,
 				4095A784259C279600CCF7E7 /* VideoItemView.swift in Sources */,
 				403AA72B2599AFC80053B620 /* VideoSelectView.swift in Sources */,
 				4022DF0E2591A040004E10CE /* DData.swift in Sources */,
