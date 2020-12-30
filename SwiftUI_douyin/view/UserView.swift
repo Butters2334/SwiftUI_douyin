@@ -56,10 +56,7 @@ struct UserView: View {
             //用户信息区域
             UserContentView(user: self.user, bgColor: self.bgColor)
             //列表左右可切换
-            VideoSelectView(videoCount: self.user.aweme_count,
-                        likeCount: self.user.favoriting_count,
-                        leftPercent: self.$leftPercent)
-                .background(self.bgColor)
+            self.selectView
             //视频列表
             PageScrollView(pageWidth: pageWidth,
                                   contentSize: pageSize,
@@ -87,7 +84,14 @@ struct UserView: View {
                            nickname: user.nickname,
                            scrollOffset: $scrollOffset,
                            backTap: {print("backTap")},
-                           moreTap: {print("moreTap")})
+                           moreTap: {print("moreTap")},
+                           selectView:{self.selectView})
+    }
+    var selectView: some View {
+        VideoSelectView(videoCount: self.user.aweme_count,
+                    likeCount: self.user.favoriting_count,
+                    leftPercent: self.$leftPercent)
+            .background(self.bgColor)
     }
     //视频列表高度依赖左右切换
     var hsHeight:CGFloat {

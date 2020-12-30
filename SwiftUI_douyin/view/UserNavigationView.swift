@@ -8,17 +8,21 @@
 
 import SwiftUI
 
-struct UserNavigationView: View {
+
+struct UserNavigationView<Content> : View where Content : View {
     let bgColor:Color
     let nickname:String
     @Binding var scrollOffset:CGFloat
     let backTap:()->Void
     let moreTap:()->Void
+    let selectView:()->Content
     var body: some View {
         GeometryReader{ geometry in
-            HStack(alignment:.top){
+            VStack(spacing:0){
                 self.navgationView(geometry: geometry)
+                self.selectView().opacity(self.selctViewOpacity)
             }
+            //默认会居中,需要先占满全屏,然后从上到下开始布局
             .frame(height:geometry.size.height,alignment: .top)
         }
     }
@@ -77,7 +81,7 @@ struct UserNavigationView: View {
         Circle()
             .frame(width:38,height:38)
             .foregroundColor(Color.gray.opacity(0.8))
-        .opacity(1-self.opacity)
+            .opacity(1-self.opacity*2)//背景渐进融合
     }
     //导航栏透明效果
     var opacity: Double {
@@ -92,6 +96,11 @@ struct UserNavigationView: View {
             return 0
         }
     }
+    //切换栏透明效果
+    var selctViewOpacity:Double {
+        //注意:-350是demo页面写死的高度,因为暂时找不到合适的计算办法
+        scrollOffset < -350 ? 1 : 0
+    }
 }
 
 private struct UserNavigationView_Temp: View {
@@ -102,13 +111,19 @@ private struct UserNavigationView_Temp: View {
                                nickname: "nickname",
                                scrollOffset:$scrollOffset,
                                backTap: {},
-                               moreTap: {})
+                               moreTap: {},
+                               selectView:{self.testSelectView})
                 .background(Color.black.opacity(0.3))
                 .edgesIgnoringSafeArea(.all)
             Text("\(scrollOffset)")
-            Slider(value:$scrollOffset,in: -300 ... -100)
+            Slider(value:$scrollOffset,in: -350 ... -100)
                 .padding(.bottom,30)
         }
+    }
+    var testSelectView : some View {
+        Rectangle()
+            .foregroundColor(.blue)
+            .frame(width:UIScreen.main.bounds.width,height:100)
     }
 }
 
