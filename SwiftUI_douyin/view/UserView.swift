@@ -8,26 +8,25 @@
 
 import SwiftUI
 
-
-
+//用户主页面
 struct UserView: View {
     let user:DUser
     let bgColor = colorRGB(0x151823)
     @State var leftPercent:CGFloat //0左,1右
-
-    @State private var scrollOffset: CGFloat = 0
+    @State private var scrollOffset: CGFloat = 0    //列表滑动监控
+    //视图合并
     var body: some View {
         ZStack(alignment: .top) {
             bgView
             scrollView
-            statusBarView
+            navigation
         }
         .background(bgColor)
         //上下适配
         .edgesIgnoringSafeArea(.all)
     }
-    
-    var  bgView : some View{
+    //背景图
+    var bgView : some View{
         ZStack{
             loadImage(self.user.user_bg)
                 .resizable()
@@ -36,24 +35,16 @@ struct UserView: View {
                 .padding(self.padding)
         }
     }
-    
-    var hsHeight:CGFloat {
-        self.leftPercent==0
-            ?
-            self.user.video_view_height
-            :
-            self.user.like_view_height
-    }
-    
+    //视频列表内容
     func getContent(_ geometry:GeometryProxy)->some View {
         let pageWidth = geometry.size.width;
         let pageSize = CGSize(width: pageWidth*2,
                               height: self.hsHeight);
         let pageContent = {
             HStack(spacing:0){
-                VideoList(videoData: self.user.sort_video_list)
+                VideoListView(videoData: self.user.sort_video_list)
                     .frame(width:geometry.size.width)
-                LikeList(videoData: self.user.favoriting_video_list)
+                LikeListView(videoData: self.user.favoriting_video_list)
                     .frame(width:geometry.size.width,
                            height:self.hsHeight)
             }
@@ -63,14 +54,14 @@ struct UserView: View {
             //占用100像素给后面的背景图
             Color.clear.frame(height:100)
             //用户信息区域
-            UserContent(user: self.user, bgColor: self.bgColor)
+            UserContentView(user: self.user, bgColor: self.bgColor)
             //列表左右可切换
-            VideoSelect(videoCount: self.user.aweme_count,
+            VideoSelectView(videoCount: self.user.aweme_count,
                         likeCount: self.user.favoriting_count,
                         leftPercent: self.$leftPercent)
                 .background(self.bgColor)
             //视频列表
-            HScrollViewController(pageWidth: pageWidth,
+            PageScrollView(pageWidth: pageWidth,
                                   contentSize: pageSize,
                                   leftPercent:self.$leftPercent,
                                   content: pageContent)
@@ -80,7 +71,7 @@ struct UserView: View {
                 .frame(height:geometry.safeAreaInsets.bottom)
         }
     }
-
+    //视频列表
     var scrollView: some View {
         GeometryReader{ geometry in
             ScrollViewOffset(onOffsetChange: {
@@ -90,34 +81,21 @@ struct UserView: View {
             })
         }
     }
-    
-    var statusBarView: some View {
-        GeometryReader{ geometry in
-            HStack(alignment:.top){
-                self.bgColor
-                    .frame(width:geometry.size.width,height: geometry.safeAreaInsets.top+44)
-                .overlay(
-                        HStack{
-                            Image(systemName: "chevron.left")
-                                .foregroundColor(.white)
-                            Spacer()
-                            Text(self.user.nickname)
-                                .font(.system(size: 24))
-                                .bold()
-                                .foregroundColor(.white)
-                            Spacer()
-                            Image(systemName: "ellipsis")
-                                .foregroundColor(.white)
-                        }.padding(15)
-                    .frame(width:geometry.size.width,height:44)
-                    ,alignment: .bottom
-                )
-            }
-            .opacity(self.opacity)
-            .frame(height:geometry.size.height,alignment: .top)
-        }
+    //导航栏
+    var navigation: some View {
+        UserNavigationView(bgColor: bgColor,
+                           nickname: user.nickname,
+                           scrollOffset: $scrollOffset)
     }
-    
+    //视频列表高度依赖左右切换
+    var hsHeight:CGFloat {
+        self.leftPercent==0
+            ?
+            self.user.video_view_height
+            :
+            self.user.like_view_height
+    }
+    //背景图片滑动效果
     var padding:EdgeInsets {
         let gap = CGFloat(60.0)
         if scrollOffset <= gap {
@@ -129,21 +107,9 @@ struct UserView: View {
                           bottom: offset,
                           trailing: offset)
     }
-    
-    var opacity: Double {
-        switch scrollOffset {
-        case -180...0:
-            return 0
-        case (-280)..<(-180):
-            return Double(-scrollOffset-180) / 100.0
-        case (-999)..<(-240):
-            return 1
-        default:
-            return 0
-        }
-    }
 }
 
+//所有预览依赖PreviewProvider协议
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
         UserView(user:TestUserList[0],leftPercent: 0)

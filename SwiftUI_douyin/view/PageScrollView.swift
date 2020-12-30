@@ -17,7 +17,7 @@ import SwiftUI
  *      makeCoordinator:类似委托的处理
  *
  */
-struct HScrollViewController<Content:View>: UIViewControllerRepresentable {
+struct PageScrollView<Content:View>: UIViewControllerRepresentable {
     let pageWidth : CGFloat
     let contentSize : CGSize
     @Binding var leftPercent : CGFloat
@@ -67,11 +67,11 @@ struct HScrollViewController<Content:View>: UIViewControllerRepresentable {
         return Coordinator(self)
     }
     class Coordinator : NSObject , UIScrollViewDelegate{
-        let parent: HScrollViewController
+        let parent: PageScrollView
         var scrollView : UIScrollView!
         var host: UIHostingController<Content>!
         
-        init(_ parent:HScrollViewController){
+        init(_ parent:PageScrollView){
             self.parent = parent
         }
         func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

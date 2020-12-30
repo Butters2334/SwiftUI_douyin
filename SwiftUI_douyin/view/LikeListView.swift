@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-private struct NoLike :View{
+private struct NoLikeView :View{
     var body: some View {
         Rectangle()
             .foregroundColor(.clear)
@@ -28,7 +28,7 @@ private struct NoLike :View{
     }
 }
 
-struct LikeList: View {
+struct LikeListView: View {
     var videoData:[[DVideo]]
     let maxWidth = UIScreen.main.bounds.width
     var listView: some View {
@@ -36,7 +36,7 @@ struct LikeList: View {
             ForEach(self.videoData,id:\.self[0].aweme_id){videoList in
                 HStack(spacing:1){
                     ForEach(videoList,id:\.self.aweme_id){
-                        VideoItem(videoData: $0)
+                        VideoItemView(videoData: $0)
                     }
                 }
                 .frame(width:self.maxWidth/3*CGFloat(videoList.count))
@@ -46,7 +46,7 @@ struct LikeList: View {
     var body: some View {
         Group{
             if videoData.count == 0 {
-                NoLike()
+                NoLikeView()
             }else{
                 listView
             }
@@ -57,7 +57,7 @@ struct LikeList: View {
 struct LikeList_Previews: PreviewProvider {
     static var previews: some View {
         VStack{
-            LikeList(videoData: TestUserList[0].favoriting_video_list)
+            LikeListView(videoData: TestUserList[0].favoriting_video_list)
         }
         .background(colorRGB(0x151823))
         .frame(height:340)

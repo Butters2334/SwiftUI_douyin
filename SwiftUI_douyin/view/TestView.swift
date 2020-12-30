@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Test: View{
+struct TestView: View{
     var body: some View{
 //        testV()
         Text("")
@@ -25,6 +25,6 @@ struct Test: View{
 
 struct Test_Previews: PreviewProvider {
     static var previews: some View {
-        Test()
+        TestView()
     }
 }

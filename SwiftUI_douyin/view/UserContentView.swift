@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct UserStatus:View {
+private struct UserHeadView:View {
     let user:DUser
     let bgColor : Color
     var body: some View{
@@ -58,7 +58,7 @@ struct UserStatus:View {
     }
 }
 
-struct UserTags:View {
+private struct UserTagsView:View {
     let user:DUser
     func genderColor(gender:Int)->Color{
         switch gender {
@@ -97,7 +97,7 @@ struct UserTags:View {
     }
 }
 
-struct UserFans:View {
+private struct UserFansView:View {
     let user    : DUser
     var body: some View{
         HStack(alignment:.lastTextBaseline,spacing:3){
@@ -123,13 +123,13 @@ struct UserFans:View {
     }
 }
 
-struct UserContent: View {
+struct UserContentView: View {
     let user    : DUser
     let bgColor : Color
     var body: some View {
         VStack(alignment: .leading, spacing: 15){
             //头像和关注按钮
-            UserStatus(user:user,bgColor: bgColor)
+            UserHeadView(user:user,bgColor: bgColor)
             //名称和昵称
             Text(user.nickname)
                 .font(.system(size: 24))
@@ -151,19 +151,18 @@ struct UserContent: View {
                 .font(.system(size: 15))
                 .lineSpacing(5)
             //标签
-            UserTags(user: user)
+            UserTagsView(user: user)
             //获赞关注粉丝
-            UserFans(user: user)
+            UserFansView(user: user)
         }
         .foregroundColor(Color.white.opacity(0.85))
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 10, trailing: 15))
         .background(bgColor)
-//        .frame(width:UIScreen.main.bounds.width)
     }
 }
 
 struct UserContent_Previews: PreviewProvider {
     static var previews: some View {
-        UserContent(user: TestUserList[0],bgColor: colorRGB(0x151823))
+        UserContentView(user: TestUserList[0],bgColor: colorRGB(0x151823))
     }
 }

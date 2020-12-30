@@ -14,7 +14,7 @@ private let GapHeight:CGFloat = 15
 private let VideoSelectHeight:CGFloat = GapHeight+ButtonHeight+2
 
 
-private struct SelectButton :View{
+private struct SelectButtonView :View{
     let text:String
     let action:()->Void
     var body: some View{
@@ -29,7 +29,7 @@ private struct SelectButton :View{
     }
 }
 
-struct VideoSelect: View {
+struct VideoSelectView: View {
     
     let videoCount:Int
     let likeCount:Int
@@ -44,12 +44,12 @@ struct VideoSelect: View {
                 .frame(height:GapHeight)
 
             HStack(spacing:0){
-                SelectButton(text: "作品 \(videoCount)") {
+                SelectButtonView(text: "作品 \(videoCount)") {
                     self.leftPercent = 0.0
                 }
                 .opacity(Double(1-self.leftPercent*0.5))
                 
-                SelectButton(text: "喜欢 \(likeCount)") {
+                SelectButtonView(text: "喜欢 \(likeCount)") {
                     self.leftPercent = 1.0
                 }
                 .opacity(Double(0.5+self.leftPercent*0.5))
@@ -72,7 +72,7 @@ struct VideoSelect: View {
 
 struct VideoSelect_Previews: PreviewProvider {
     static var previews: some View {
-        VideoSelect(videoCount: 1,
+        VideoSelectView(videoCount: 1,
                     likeCount: 2,
                     leftPercent:.constant(0.0))
         .background(Color.black)
