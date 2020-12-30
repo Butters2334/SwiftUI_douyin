@@ -38,41 +38,55 @@ struct UserView: View {
     }
     
     var hsHeight:CGFloat {
-        self.leftPercent==0 ? self.user.video_view_height : self.user.like_view_height
+        self.leftPercent==0
+            ?
+            self.user.video_view_height
+            :
+            self.user.like_view_height
     }
     
+    func getContent(_ geometry:GeometryProxy)->some View {
+        let pageWidth = geometry.size.width;
+        let pageSize = CGSize(width: pageWidth*2,
+                              height: self.hsHeight);
+        let pageContent = {
+            HStack(spacing:0){
+                VideoList(videoData: self.user.sort_video_list)
+                    .frame(width:geometry.size.width)
+                LikeList(videoData: self.user.favoriting_video_list)
+                    .frame(width:geometry.size.width,
+                           height:self.hsHeight)
+            }
+            .background(self.bgColor)
+        }
+        return VStack(alignment:.center,spacing:0){
+            //占用100像素给后面的背景图
+            Color.clear.frame(height:100)
+            //用户信息区域
+            UserContent(user: self.user, bgColor: self.bgColor)
+            //列表左右可切换
+            VideoSelect(videoCount: self.user.aweme_count,
+                        likeCount: self.user.favoriting_count,
+                        leftPercent: self.$leftPercent)
+                .background(self.bgColor)
+            //视频列表
+            HScrollViewController(pageWidth: pageWidth,
+                                  contentSize: pageSize,
+                                  leftPercent:self.$leftPercent,
+                                  content: pageContent)
+                .frame(height:self.hsHeight)
+            //底部适配X的屏幕下方
+            self.bgColor
+                .frame(height:geometry.safeAreaInsets.bottom)
+        }
+    }
+
     var scrollView: some View {
         GeometryReader{ geometry in
             ScrollViewOffset(onOffsetChange: {
                 self.scrollOffset = $0
             }, content: {
-                VStack(alignment:.center,spacing:0){
-                    //占用100像素给后面的背景图
-                    Color.clear.frame(height:100)
-                    
-                    UserContent(user: self.user, bgColor: self.bgColor)
-                                        
-                    VideoSelect(videoCount: self.user.aweme_count,
-                                likeCount: self.user.favoriting_count,
-                                leftPercent: self.$leftPercent)
-                        .background(self.bgColor)
-                    
-
-                    HScrollViewController(pageWidth: geometry.size.width, contentSize: CGSize(width: geometry.size.width*2, height: self.hsHeight),leftPercent:self.$leftPercent) {
-                        HStack(spacing:0){
-                            VideoList(videoData: self.user.sort_video_list)
-                                .frame(width:geometry.size.width)
-                            LikeList(videoData: self.user.favoriting_video_list)
-                                .frame(width:geometry.size.width,height:self.hsHeight)
-                        }
-                        .background(self.bgColor)
-                    }
-                    .frame(height:self.hsHeight)
-
-                    //底部适配X的屏幕下方
-                    self.bgColor
-                        .frame(height:geometry.safeAreaInsets.bottom)
-                }
+                self.getContent(geometry)
             })
         }
     }

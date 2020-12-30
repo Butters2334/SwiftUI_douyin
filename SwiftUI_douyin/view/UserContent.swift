@@ -44,11 +44,12 @@ struct UserStatus:View {
                 Button(action: {
                     print("私信")
                 }) {
-                    Text("私信")
-                        .font(.system(size: 15))
-                        .bold()
+//                    Text("私信")
+//                        .font(.system(size: 15))
+//                        .bold()
+                    Image(systemName: "chevron.down")
                 }
-                .frame(width:70,height:40)
+                .frame(width:40,height:40)
                 .background(Color.gray.opacity(0.3))
             }
             .foregroundColor(.white)
@@ -80,6 +81,9 @@ struct UserTags:View {
                 ForEach(user.tag,id:\.self){
                     Text("\($0)")
                 }
+//                ForEach(user.tag,id:\.self){
+//                    Text("\($0)")
+//                }
             }
             .font(.system(size: 13))
             .foregroundColor(Color.white.opacity(0.4))
