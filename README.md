@@ -84,6 +84,15 @@
     发现一个系统bug:默认会加载所有的预览页面,在开发过程如果某个预览页面传递给关联页面的数据有误,会直接提示preview error,不会显示具体问题和具体原因;结论是在开发项目中要避免页面未开发完成就先调用的习惯,在swiftUI这种编程习惯会导致出现很难定位的预览崩溃;
     现在的左右切换还是不太完美
     
+<details close>
+<summary>用户页面12228</summary>
+<img width="50%" src="https://github.com/Butters2334/SwiftUI_douyin/raw/master/images/userView1228.png"/>
+</details>    
+<details close>
+<summary>用户页面12229</summary>
+<img width="50%" src="https://github.com/Butters2334/SwiftUI_douyin/raw/master/images/userView1229.png"/>
+</details>    
+
 
 ## 📎 About
 

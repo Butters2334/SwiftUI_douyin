@@ -89,10 +89,6 @@ extension DUser{
     //视频列表高度;找不到两个scrollview嵌套的办法,暂时计算高度来适配
     var video_view_height:CGFloat {
         if video_list.count > 0 {
-            print(video_list[0].coverSize.height)
-            print(CGFloat(video_list.count) / 3)
-            print(ceil(CGFloat(video_list.count) / 3))
-            print(video_list[0].coverSize.height * ceil(CGFloat(video_list.count) / 3))
             return video_list[0].coverSize.height * ceil(CGFloat(video_list.count) / 3)
         }
         return 170*2

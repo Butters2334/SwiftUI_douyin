@@ -12,6 +12,7 @@ private struct NoLike :View{
     var body: some View {
         Rectangle()
             .foregroundColor(.clear)
+            .frame(height:340)
             .overlay(
                 VStack(spacing:15){
                     Text("暂无内容")

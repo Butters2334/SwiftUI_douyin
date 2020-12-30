@@ -8,10 +8,19 @@
 
 import SwiftUI
 
-struct Test: View {
+struct Test: View{
     var body: some View{
-        Text("test")
+//        testV()
+        Text("")
     }
+//    func testV<Content>()->Content where Content:View{
+////        {
+////            Text("testV")
+//            Text("testV-2")
+//                .foregroundColor(.red)
+//                .background(Color.blue)
+////        }
+//    }
 }
 
 struct Test_Previews: PreviewProvider {

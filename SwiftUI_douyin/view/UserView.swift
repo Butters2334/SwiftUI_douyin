@@ -132,6 +132,6 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView(user:TestUserList[0],leftPercent: 1)
+        UserView(user:TestUserList[0],leftPercent: 0)
     }
 }
