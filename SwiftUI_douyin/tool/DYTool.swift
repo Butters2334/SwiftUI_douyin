@@ -30,11 +30,15 @@ func loadListData(_ fileName:String)->[DUser]{
 
 
 func loadImage(_ name:String)->Image{
+    Image(uiImage: loadUIImage(name))
+}
+
+func loadUIImage(_ name:String)->UIImage{
 //    print(NetworkAPIBaseURL+name)
 //    return WebImage(url: URL(string:NetworkAPIBaseURL+name))
 //        .placeholder{ Color.gray }
 //        .resizable()
-    return Image(uiImage: UIImage(named: name)!)
+    return name.count == 0 ? UIImage() : UIImage(named: name)!
 }
 
 

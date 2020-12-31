@@ -14,12 +14,14 @@ struct UserView: View {
     let bgColor = colorRGB(0x151823)
     @State var leftPercent:CGFloat //0左,1右
     @State private var scrollOffset: CGFloat = 0    //列表滑动监控
+    @State private var showImageUrl = ""
     //视图合并
     var body: some View {
         ZStack(alignment: .top) {
             bgView
             scrollView
             navigation
+            showImageView
         }
         .background(bgColor)
         //上下适配
@@ -34,6 +36,32 @@ struct UserView: View {
                 .frame(height:140)
                 .padding(self.padding)
         }
+    }
+    //暂时背景大图展开状态,可下载图片
+    var showImageView: some View {
+        GeometryReader{geometry in
+            loadImage(self.showImageUrl)
+                .resizable()
+                .scaledToFill()
+                .frame(height:140)
+                .frame(height:geometry.size.height-geometry.safeAreaInsets.bottom*2)
+                .addView(alignment:.bottomTrailing){
+                    Image(systemName: "arrow.down.to.line")
+                    .frame(width:30,height:35)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20))
+                    .setBackground{
+                        RoundedRectangle(cornerRadius: 4).foregroundColor(Color.gray)
+                    }
+                    .offset(x:-15)
+                    .onTapGesture {
+                        ImageSaver().writeToPhotoAlbum(image: loadUIImage(self.showImageUrl))
+                    }
+                }
+        }
+        .background(self.bgColor)
+        .opacity(self.showImageUrl.count > 0 ? 1 : 0)
+        .onTapGesture {self.showImageUrl = ""}
     }
     //视频列表内容
     func getContent(_ geometry:GeometryProxy)->some View {
@@ -52,9 +80,12 @@ struct UserView: View {
         }
         return VStack(alignment:.center,spacing:0){
             //占用100像素给后面的背景图
-            Color.clear.frame(height:100)
+            Color.clear
+                .frame(height:100)
             //用户信息区域
-            UserContentView(user: self.user, bgColor: self.bgColor)
+            UserContentView(user: self.user,
+                            bgColor: self.bgColor,
+                            showHead: {self.showImageUrl=self.user.avatar})
             //列表左右可切换
             self.selectView
             //视频列表
@@ -80,12 +111,15 @@ struct UserView: View {
     }
     //导航栏
     var navigation: some View {
-        UserNavigationView(bgColor: bgColor,
-                           nickname: user.nickname,
-                           scrollOffset: $scrollOffset,
-                           backTap: {print("backTap")},
-                           moreTap: {print("moreTap")},
-                           selectView:{self.selectView})
+        UserNavigationView(
+            bgColor: bgColor,
+            nickname: user.nickname,
+            scrollOffset: $scrollOffset,
+            backTap: {print("backTap")},
+            moreTap: {print("moreTap")},
+            bgTap: {self.showImageUrl=self.user.user_bg},
+            selectView:{self.selectView}
+        )
     }
     var selectView: some View {
         VideoSelectView(videoCount: self.user.aweme_count,

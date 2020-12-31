@@ -11,6 +11,7 @@ import SwiftUI
 private struct UserHeadView:View {
     let user:DUser
     let bgColor : Color
+    let showHead:()->Void
     var body: some View{
         HStack(spacing: 15){
             loadImage(user.avatar)
@@ -23,6 +24,7 @@ private struct UserHeadView:View {
                     .stroke(bgColor, lineWidth: 1.5)
                 )
                 .padding(.top,-15)
+                .onTapGesture(perform: showHead)
 
             HStack(spacing:8){
                 GeometryReader { geometry in
@@ -126,10 +128,13 @@ private struct UserFansView:View {
 struct UserContentView: View {
     let user    : DUser
     let bgColor : Color
+    let showHead:()->Void
     var body: some View {
         VStack(alignment: .leading, spacing: 15){
             //头像和关注按钮
-            UserHeadView(user:user,bgColor: bgColor)
+            UserHeadView(user:user,
+                         bgColor: bgColor,
+                         showHead: showHead)
             //名称和昵称
             Text(user.nickname)
                 .font(.system(size: 24))
@@ -163,6 +168,8 @@ struct UserContentView: View {
 
 struct UserContent_Previews: PreviewProvider {
     static var previews: some View {
-        UserContentView(user: TestUserList[0],bgColor: colorRGB(0x151823))
+        UserContentView(user: TestUserList[0],
+                        bgColor: colorRGB(0x151823),
+                        showHead: {print("test")})
     }
 }

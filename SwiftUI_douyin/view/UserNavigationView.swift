@@ -15,6 +15,7 @@ struct UserNavigationView<Content> : View where Content : View {
     @Binding var scrollOffset:CGFloat
     let backTap:()->Void
     let moreTap:()->Void
+    let bgTap:()->Void
     let selectView:()->Content
     var body: some View {
         GeometryReader{ geometry in
@@ -33,6 +34,9 @@ struct UserNavigationView<Content> : View where Content : View {
         return Rectangle()
             .frame(width: viewWidth, height: safeTop+statusHeight)
             .foregroundColor(self.bgColor.opacity(self.opacity))
+            .onTapGesture {
+                print("navgation")
+            }
             .addView(alignment: .bottom){
                 self.defaultView
                     .frame(width:viewWidth,height:statusHeight)
@@ -56,7 +60,13 @@ struct UserNavigationView<Content> : View where Content : View {
     var defaultView: some View {
         HStack{
             backBtn.setBackground {butBg}
-            Spacer()
+            GeometryReader{g in
+                Button(action:self.bgTap){
+                    Rectangle()
+                    .frame(width: g.size.width, height: 44)
+                    .foregroundColor(.clear)
+                }
+            }.opacity(self.scrollOffset >= -30 ? 1 :0)
             moreBtn.setBackground {butBg}
         }
         .padding(CGFloat(15 + 15.0 * (1-self.opacity)))
@@ -80,7 +90,7 @@ struct UserNavigationView<Content> : View where Content : View {
     var butBg : some View {
         Circle()
             .frame(width:38,height:38)
-            .foregroundColor(Color.gray.opacity(0.8))
+            .foregroundColor(Color.gray.opacity(0.65))
             .opacity(1-self.opacity*2)//背景渐进融合
     }
     //导航栏透明效果
@@ -97,7 +107,7 @@ struct UserNavigationView<Content> : View where Content : View {
         }
     }
     //切换栏透明效果
-    var selctViewOpacity:Double {
+    fileprivate var selctViewOpacity:Double {
         //注意:-350是demo页面写死的高度,因为暂时找不到合适的计算办法
         scrollOffset < -350 ? 1 : 0
     }
@@ -110,8 +120,9 @@ private struct UserNavigationView_Temp: View {
             UserNavigationView(bgColor: colorRGB(0x151823),
                                nickname: "nickname",
                                scrollOffset:$scrollOffset,
-                               backTap: {},
-                               moreTap: {},
+                               backTap: {print("backTap")},
+                               moreTap: {print("moreTap")},
+                               bgTap: {},
                                selectView:{self.testSelectView})
                 .background(Color.black.opacity(0.3))
                 .edgesIgnoringSafeArea(.all)

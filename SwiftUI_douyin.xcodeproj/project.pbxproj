@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		401DE68B259C4FF600DF2FE3 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DE68A259C4FF600DF2FE3 /* View+.swift */; };
+		401DE68D259DB69F00DF2FE3 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DE68C259DB69E00DF2FE3 /* ImageSaver.swift */; };
 		4021FA312591B9EA00CFDD94 /* DYTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021FA302591B9EA00CFDD94 /* DYTool.swift */; };
 		4021FA332591BE7300CFDD94 /* DUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021FA322591BE7300CFDD94 /* DUser.swift */; };
 		4021FA352591C04300CFDD94 /* DVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021FA342591C04300CFDD94 /* DVideo.swift */; };
@@ -57,11 +58,13 @@
 		4090C47B259AFB8300CCBCFD /* LikeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4090C47A259AFB8300CCBCFD /* LikeListView.swift */; };
 		4095A784259C279600CCF7E7 /* VideoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4095A783259C279600CCF7E7 /* VideoItemView.swift */; };
 		4095A786259C27E200CCF7E7 /* UserNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4095A785259C27E200CCF7E7 /* UserNavigationView.swift */; };
+		40AC78EE259DBEA90028A548 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AC78ED259DBEA90028A548 /* ActionButton.swift */; };
 		40C8809F2599C98300A505F2 /* PageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8809E2599C98300A505F2 /* PageScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		401DE68A259C4FF600DF2FE3 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		401DE68C259DB69E00DF2FE3 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		4021FA302591B9EA00CFDD94 /* DYTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DYTool.swift; sourceTree = "<group>"; };
 		4021FA322591BE7300CFDD94 /* DUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DUser.swift; sourceTree = "<group>"; };
 		4021FA342591C04300CFDD94 /* DVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVideo.swift; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 		4090C47A259AFB8300CCBCFD /* LikeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListView.swift; sourceTree = "<group>"; };
 		4095A783259C279600CCF7E7 /* VideoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItemView.swift; sourceTree = "<group>"; };
 		4095A785259C27E200CCF7E7 /* UserNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNavigationView.swift; sourceTree = "<group>"; };
+		40AC78ED259DBEA90028A548 /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		40C8809E2599C98300A505F2 /* PageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +134,7 @@
 		401DE689259C4FDC00DF2FE3 /* extension */ = {
 			isa = PBXGroup;
 			children = (
+				40AC78ED259DBEA90028A548 /* ActionButton.swift */,
 				401DE68A259C4FF600DF2FE3 /* View+.swift */,
 			);
 			path = extension;
@@ -140,6 +145,7 @@
 			children = (
 				4021FA302591B9EA00CFDD94 /* DYTool.swift */,
 				4021FA772591FB9300CFDD94 /* PalyerView.swift */,
+				401DE68C259DB69E00DF2FE3 /* ImageSaver.swift */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 				4022DEF525907923004E10CE /* AppDelegate.swift in Sources */,
 				4090C47B259AFB8300CCBCFD /* LikeListView.swift in Sources */,
 				4022DEF725907923004E10CE /* SceneDelegate.swift in Sources */,
+				40AC78EE259DBEA90028A548 /* ActionButton.swift in Sources */,
 				4021FA312591B9EA00CFDD94 /* DYTool.swift in Sources */,
 				403AA72925997F960053B620 /* TestView.swift in Sources */,
 				4021FA372591C44900CFDD94 /* DStatistics.swift in Sources */,
@@ -371,6 +378,7 @@
 				4095A786259C27E200CCF7E7 /* UserNavigationView.swift in Sources */,
 				401DE68B259C4FF600DF2FE3 /* View+.swift in Sources */,
 				4095A784259C279600CCF7E7 /* VideoItemView.swift in Sources */,
+				401DE68D259DB69F00DF2FE3 /* ImageSaver.swift in Sources */,
 				403AA72B2599AFC80053B620 /* VideoSelectView.swift in Sources */,
 				4022DF0E2591A040004E10CE /* DData.swift in Sources */,
 				4021FA732591D64400CFDD94 /* VideoListView.swift in Sources */,
